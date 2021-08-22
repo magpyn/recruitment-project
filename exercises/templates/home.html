@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise A&B</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,300;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <h1>Users data</h1>
+    <table>
+        <tr class="top-headers">
+            <th colspan="3">Personal</th>
+            <th colspan="6">Location</th>
+            <th colspan="2">Coordinates</th>
+            <th colspan="2">Timezone</th>
+            <th colspan="1">Email</th>
+            <th colspan="7">Login</th>
+            <th colspan="2">Birthday</th>
+            <th colspan="2">Registered</th>
+            <th>Phone</th>
+            <th>Cell</th>
+            <th colspan="2">Id</th>
+            <th>Picture</th>
+            <th colspan="2">Nationality</th>
+        </tr>
+        <tr class="low-headers">
+            <th>Gender</th>
+            <th>Title</th>
+            <th>Full name</th>
+            <th>Street</th>
+            <th>Number</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Country</th>
+            <th>Postcode</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>Offset</th>
+            <th>Description</th>
+            <th>Email</th>
+            <th>uuid</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Salt</th>
+            <th>md5</th>
+            <th>sha1</th>
+            <th>sha256</th>
+            <th>Date</th>
+            <th>Age</th>
+            <th>Date</th>
+            <th>Age</th>
+            <th>Phone</th>
+            <th>Cell</th>
+            <th>Name</th>
+            <th>Value</th>
+            <th>Picture</th>
+            <th>Shortcut</th>
+            <th>Flag</th>
+        </tr>
+        {% for user in content %}
+        <tr>
+            <td>{{user.gender}}</td>
+            <td>{{user.name.title}}</td>
+            <td>{{user.name.first}} {{user.name.last}}</td>
+            <td>{{user.location.street.name}}</td>
+            <td>{{user.location.street.number}}</td>
+            <td>{{user.location.city}}</td>
+            <td>{{user.location.state}}</td>
+            <td>{{user.location.country}}</td>
+            <td>{{user.location.postcode}}</td>
+            <td>{{user.location.coordinates.latitude}}</td>
+            <td>{{user.location.coordinates.longitude}}</td>
+            <td>{{user.location.timezone.offset}}</td>
+            <td>{{user.location.timezone.description}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.login.uuid}}</td>
+            <td>{{user.login.username}}</td>
+            <td>{{user.login.password}}</td>
+            <td>{{user.login.salt}}</td>
+            <td>{{user.login.md5}}</td>
+            <td>{{user.login.sha1}}</td>
+            <td>{{user.login.sha256}}</td>
+            <td>{{user.dob.date}}</td>
+            <td>{{user.dob.age}}</td>
+            <td>{{user.registered.date}}</td>
+            <td>{{user.registered.age}}</td>
+            <td>{{user.phone}}</td>
+            <td>{{user.cell}}</td>
+            <td>{{user.id.name}}</td>
+            <td>{{user.id.value}}</td>
+            <td><img src="{{user.picture.medium}}" alt=""></td>
+            <td>{{user.nat}}</td>
+            <td><img width="100px" src="{{user.flag}}" alt=""></td>
+        </tr>
+
+
+
+        {% endfor %}
+    </table>
+</body>
+
+</html>
